@@ -1,14 +1,31 @@
 import { Router } from "express";
+import { userController } from "./controllers";
 
 const router = Router();
 
 
-// TODO buscar os dados dos usuarios pelo prisma
 router.get('/users', (request, response) => {
+    return userController.get(request, response);
+});
 
-    return response.status(200).json({
-        "test": 'Ok'
-    });
+router.get('/users/:id', (request, response) => {
+    return userController.get(request, response);
+});
+
+router.post('/users', (request, response) => {
+    return userController.post(request, response);
+});
+
+router.put('/users', (request, response) => {
+    return userController.update(request, response);
+});
+
+router.put('/users/:id', (request, response) => {
+    return userController.update(request, response);
+});
+
+router.delete('/users/:id', (request, response) => {
+    return userController.delete(request, response);
 });
 
 export { router };
